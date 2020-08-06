@@ -1,0 +1,30 @@
+﻿@model List<March18.Models.ToDoItems>
+    <html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <table style="margin-top:20px" class="table table-hover table-bordered table-striped">
+            <tr>
+                <th>Title</th>
+                <th>Due Date</th>
+                <th>Category Name</th>
+                <th>Mark as Complete</th>
+            </tr>
+            @foreach(ToDoItems t in Model)
+            {
+                <tr>
+                    <td>@t.Title</td>
+                    <td>@t.DueDate</td>
+                    <td>@t.CategoryName</td>
+                    <td>
+                        <form method="post" action="/home/complete">
+                            <input type="hidden" name="id" value="@t.Id" />
+                            <button class="btn btn-success">Completed</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </table>
+    </body>
+    </html>

@@ -1,0 +1,28 @@
+﻿@model List<March18.Models.Category>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <a style="margin-top:20px" class="btn btn-primary" href="/home/AddCategory">Add Category</a>
+    <table style="margin-top:40px" class="table table-hover table-bordered table-striped">
+        <tr>        
+            <th>Name</th>
+        </tr>
+        @foreach (Category c in Model)
+        {
+            <tr>
+               
+                <td>
+                    <form method="post" action="/home/EditCategory">
+                        <input type="hidden" name="id" value="@c.Id" />
+                        <input class="form-control" type="text" name="name" value="@c.Name" />
+                        <br />
+                        <button class="btn btn-success">Update</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
