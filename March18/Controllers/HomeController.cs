@@ -22,6 +22,8 @@ namespace March18.Controllers
             TaskDB taskDB = new TaskDB(@"Data Source=.\sqlexpress;Initial Catalog=ToDo;Integrated Security=True;");
             taskDB.MarkAsComplete(id);
             return Redirect("/home/home");
+
+
         }
         public IActionResult CompletedItems()
         {
